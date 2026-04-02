@@ -57,24 +57,14 @@ router.put(
 
 router.put(
     "/update-avatar",
-    upload.fields([
-        {
-            name: "avatar",
-            maxCount: 1
-        }
-    ]),
+    upload.single("avatar"),
     verifyJWT,
     updateUserAvatar
 );
 
 router.put(
     "/update-cover-image",
-    upload.fields([
-        {
-            name: "coverImage",
-            maxCount: 1
-        }
-    ]),
+    upload.single("coverImage"),
     verifyJWT,
     updateUserCoverImage
 );
