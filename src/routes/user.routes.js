@@ -49,28 +49,29 @@ router.post(
     getCurrentUser
 );
 
-router.put(
+router.patch(
     "/update-profile",
     verifyJWT,
     updateAccountDetails
 );
 
-router.put(
+router.patch(
     "/update-avatar",
-    upload.single("avatar"),
     verifyJWT,
+    upload.single("avatar"),
     updateUserAvatar
 );
 
-router.put(
+router.patch(
     "/update-cover-image",
-    upload.single("coverImage"),
     verifyJWT,
+    upload.single("coverImage"),
     updateUserCoverImage
 );
 
 router.get(
-    "/channel",
+    "/channel/:username",
+    verifyJWT,
     getUserChannelProfile
 );
 
